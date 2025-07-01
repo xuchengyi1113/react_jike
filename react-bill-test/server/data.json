@@ -1,0 +1,25 @@
+{
+    "ka":[
+        {
+            "type":"pay",
+            "money":100,
+            "date": "2022-05-01",
+            "userFor":"drinks",
+            "id":1
+        },
+        {
+            "type":"pay",
+            "money":200,
+            "date": "2022-05-02",
+            "userFor":"food",
+            "id":2
+        },
+        {
+            "type":"income",
+            "money":300,
+            "date": "2022-05-03",
+            "userFor":"salary",
+            "id":3
+        }
+    ]
+}
