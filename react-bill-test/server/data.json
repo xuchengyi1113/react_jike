@@ -20,6 +20,55 @@
             "date": "2022-05-03",
             "userFor":"salary",
             "id":3
+        },
+        {
+        "type":"pay",
+        "money":50,
+        "date": "2022-05-04",
+        "userFor":"transport",
+        "id":4
+        },
+        {
+            "type":"income",
+            "money":150,
+            "date": "2022-05-05",
+            "userFor":"bonus",
+            "id":5
+        },
+        {
+            "type":"pay",
+            "money":120,
+            "date": "2022-05-06",
+            "userFor":"entertainment",
+            "id":6
+        },
+        {
+            "type":"pay",
+            "money":80,
+            "date": "2022-05-07",
+            "userFor":"groceries",
+            "id":7
+        },
+        {
+            "type":"income",
+            "money":500,
+            "date": "2022-05-08",
+            "userFor":"freelance",
+            "id":8
+        },
+        {
+            "type":"pay",
+            "money":75,
+            "date": "2022-05-09",
+            "userFor":"utilities",
+            "id":9
+        },
+        {
+            "type":"pay",
+            "money":300,
+            "date": "2022-05-10",
+            "userFor":"rent",
+            "id":10
         }
     ]
 }
