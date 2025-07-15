@@ -1,6 +1,6 @@
 import { NavBar, DatePicker } from 'antd-mobile'
 import './index.scss'
-import { useState,useMemo } from 'react'
+import { useState,useMemo, useEffect } from 'react'
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
@@ -27,21 +27,28 @@ const Month = () => {
   })
 
   const monthResult = useMemo(()=>{
-const pay = (currentMonthList && Array.isArray(currentMonthList) ?
+    const pay = (currentMonthList && Array.isArray(currentMonthList) ?
                  currentMonthList.filter(item => item.type === 'pay').reduce((a,c)=>a+c.money, 0)
                  : 0); // 如果 currentMonthList 为空或不是数组，pay 默认为 0
 
     const income = (currentMonthList && Array.isArray(currentMonthList) ?
                     currentMonthList.filter(item=> item.type === 'income').reduce((a,c)=>a+c.money, 0)
                     : 0); // 如果 currentMonthList 为空或不是数组，income 默认为 0
-      return{
-        pay,
-        income,
-        balance: income - pay
-      }
+    return{
+      pay,
+      income,
+      balance: income - pay
+    }
     
     
   },[currentMonthList]);
+
+  useEffect(()=>{
+    const nowDate = dayjs().format('YYYY-MM');
+    if(monthGroup[nowDate]){
+      setMonthList(monthGroup[nowDate]);
+    }
+  },[monthGroup])
   const onConfirm = (date) => {
     const dateStr = dayjs(date).format('YYYY-MM');
     setCurrentDate(dateStr);
