@@ -1,6 +1,8 @@
 import classNames from 'classnames'
 import { useMemo } from 'react';
 import './index.scss'
+import billTypeToName from '@/contents/index.js'
+import { useState } from 'react';
 
 const DailyBill = ({date, billList}) => {
       const dayResult = useMemo(()=>{
@@ -17,12 +19,14 @@ const DailyBill = ({date, billList}) => {
           balance: income - pay
         }  
       },[billList]);
+
+      const [visible, setVisible] = useState(false);
   return (
     <div className={classNames('dailyBill')}>
       <div className="header">
         <div className="dateIcon">
           <span className="date">{date}</span>
-          <span className={classNames('arrow')}></span>
+          <span className={classNames('arrow', visible && 'expand')} onClick={() => setVisible(!visible)}></span>
         </div>
         <div className="oneLineOverview">
           <div className="pay">
@@ -39,6 +43,20 @@ const DailyBill = ({date, billList}) => {
           </div>
         </div>
       </div>
+      <div className="billList" style={{display: visible ? 'block' : 'none'}}>
+        {billList.map(item => {
+            return (
+                <div className="bill" key={item.id}>
+                    <div className="detail">
+                        <div className="billType">{billTypeToName[item.userFor]}</div>
+                    </div>
+                    <div className={classNames('money', item.type)}>
+                        {item.money.toFixed(2)}
+                    </div>
+                </div>
+            )
+        })}
+    </div>
     </div>
   )
 }

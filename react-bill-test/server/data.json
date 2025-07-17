@@ -74,7 +74,7 @@
             "type":"pay",
             "money":300,
             "date": "2025-07-10",
-            "userFor":"rent",
+            "userFor":"food",
             "id":10
         }
     ]
